@@ -17,28 +17,20 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @AutoConfigureMockMvc
-public class AuthenticationWebTests {
-
-
-
+public class AuthenticationWebTests 
+{
     @LocalServerPort
     private int port;
-
 
     @Autowired
     private LoginController controller;
 
-
-
-
     @Autowired
     private MockMvc mockMvc;
 
-
     @Test
-    public void shouldReturnDefaultMessage() throws Exception {
+    public void shouldReturnDefaultMessage() throws Exception 
+    {
         this.mockMvc.perform(get("/")).andDo(print()).andExpect(status().isOk());
     }
-
-
 }
