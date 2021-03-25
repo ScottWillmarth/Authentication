@@ -31,8 +31,9 @@ public class LoginController {
     @PostMapping("/login")
     public String submitLogin(@RequestParam String username, @RequestParam String password){
 
-        //TODO:
-
+        //TODO: Submit Username and password
+    	System.out.println(username);
+    	System.out.println(password);
         return "Success";
 
 

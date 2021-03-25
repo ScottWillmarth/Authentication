@@ -26,7 +26,8 @@ public class AuthenticationTests {
 
 
     @Test
-    public void whenFindByName_thenReturnUser() {
+    public void whenFindByName_thenReturnUser() 
+    {
         // given
 
         User dummyUser = new User();
@@ -43,6 +44,48 @@ public class AuthenticationTests {
 
         assertEquals(found.getName(), dummyUser.getName());
     }
+    
+    @Test
+    public void whenFindByEmail_thenReturnUser() 
+    {
+        // given
+
+        User dummyUser = new User();
+        dummyUser.setName("Dummy");
+        dummyUser.setEmail("test@test.com");
+        dummyUser.setPassword("password");
+        entityManager.persist(dummyUser);
+        entityManager.flush();
+
+        // when
+        User found = userRepository.findByEmail(dummyUser.getEmail());
+
+        // then
+
+        assertEquals(found.getEmail(), dummyUser.getEmail());
+    }
+    
+    @Test
+    public void whenFindByPassword_thenReturnUser() 
+    {
+        // given
+
+        User dummyUser = new User();
+        dummyUser.setName("Dummy");
+        dummyUser.setEmail("test@test.com");
+        dummyUser.setPassword("password");
+        entityManager.persist(dummyUser);
+        entityManager.flush();
+
+        // when
+        User found = userRepository.findByPassword(dummyUser.getPassword());
+
+        // then
+
+        assertEquals(found.getPassword(), dummyUser.getPassword());
+    }
+    
+    
 
 
 
